@@ -1,0 +1,53 @@
+{
+  "name": "Blog",
+  "version": "1.0.0",
+  "description": "A Micro Blog Application",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/sohaibfarooqi/blog"
+  },
+  "engines": {
+    "npm": ">=5",
+    "node": ">=8.10.0"
+  },
+  "author": "Sohaib Farooqi",
+  "license": "MIT",
+  "scripts": {
+    "build": "cross-env NODE_ENV=production webpack --config internals/webpack/webpack.prod.babel.js --color -p --progress --hide-modules --display-optimization-bailout",
+    "start": "cross-env NODE_ENV=development node server",
+    "start:production": "npm run test && npm run build && npm run start:prod",
+    "start:prod": "cross-env NODE_ENV=production node server",
+    "lint": "npm run lint:js",
+    "test": "cross-env NODE_ENV=test jest --coverage",
+    "test:watch": "cross-env NODE_ENV=test jest --watchAll",
+    "coveralls": "cat ./coverage/lcov.info | coveralls",
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.0.0",
+    "compression": "1.7.3",
+    "connected-react-router": "4.5.0",
+    "cross-env": "5.2.0",
+    "express": "4.16.4",
+    "fontfaceobserver": "2.0.13",
+    "prop-types": "15.6.2",
+    "react": "16.6.0",
+    "react-dom": "16.6.0",
+    "react-redux": "5.0.7",
+    "redux": "4.0.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "7.1.2",
+    "@babel/core": "7.1.2",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-loader": "8.0.4",
+    "enzyme": "3.7.0",
+    "enzyme-adapter-react-16": "1.6.0",
+    "enzyme-to-json": "3.3.4",
+    "eslint": "5.7.0",
+    "webpack": "4.23.1",
+    "webpack-cli": "3.1.2",
+    "webpack-dev-middleware": "3.4.0",
+    "webpack-hot-middleware": "2.24.3 ",
+    "whatwg-fetch": "3.0.0"
+  }
+}
