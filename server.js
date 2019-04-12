@@ -3,6 +3,13 @@ import webpack from 'webpack';
 import WebpackDevServer from 'webpack-dev-server';
 const config = require('./webpack/webpack.dev.babel');
 
+/*
+Webpack server configuration and entry point.
+
+TODO:
+  - Make port read from env settings.
+  - Move logging to Middleware.
+*/
 new WebpackDevServer(webpack(config), {
   publicPath: config.output.publicPath,
   hot: true,
