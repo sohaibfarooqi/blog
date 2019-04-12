@@ -8,6 +8,10 @@ This application creates a sample Blog using [Sample Django API](https://github.
  - `npm install`.
  - `npm start`.
 
+To run test use
+
+  - `npm run test`.
+
 ### Tech Stack
 
  - ReactJS 16
