@@ -51,7 +51,8 @@ class HomePage extends React.Component{
     return (
       <div>
         <NotificationContainer/>
-        {error ? NotificationManager.error('Something Went Wrong!') : ''} // Flash error message if request dont get successful
+        {/*Flash error message if request dont get successful */}
+        {error ? NotificationManager.error('Something Went Wrong!') : ''}
 
         <Tabs
           defaultIndex={0}
