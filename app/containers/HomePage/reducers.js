@@ -1,5 +1,4 @@
-import { combineReducers } from 'redux';
-import { fromJS } from 'immutable';
+import { combineReducers } from 'redux'
 
 import {
   SELECT_TAB,
