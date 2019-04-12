@@ -5,6 +5,11 @@ import ReactTable from "react-table";
 import { ReactTableDefaults } from 'react-table'
 import 'react-table/react-table.css'
 
+/*
+Table component for application.
+It is used as `TabPanel` inside `HomePage`
+container.
+*/
 class Table extends React.Component {
 
   render(){
