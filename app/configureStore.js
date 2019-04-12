@@ -5,6 +5,9 @@ import rootReducer from './Containers/HomePage/reducers'
 
 const loggerMiddleware = createLogger()
 
+/*
+Redux store setup.
+*/
 export default function configureStore(preloadedState) {
   return createStore(
     rootReducer,
