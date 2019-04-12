@@ -9,6 +9,9 @@ import {
   TAB_LIST
 } from './constants'
 
+/*
+Root reducer for selected tab event.
+*/
 function selectedTab(state = TAB_LIST[0], action) {
 
   switch (action.type) {
@@ -21,7 +24,13 @@ function selectedTab(state = TAB_LIST[0], action) {
   }
 }
 
-function appData(state = {isFetching: false, items: [], error: ''}, action){
+/*
+Helper method used by reducer to load manage states of the
+newly fetched resource.
+*/
+function resource(
+  state = {isFetching: false, items: [], error: ''},
+  action){
   switch (action.type) {
 
     case REQUEST_RESOURCE:
@@ -45,7 +54,9 @@ function appData(state = {isFetching: false, items: [], error: ''}, action){
       return state
   }
 }
-
+/*
+Reducer for fetching the data by tab instance.
+*/
 function dataByTab(state = {}, action) {
 
   switch (action.type) {
@@ -53,7 +64,7 @@ function dataByTab(state = {}, action) {
     case REQUEST_RESOURCE:
     case RECEIVE_RESOURCE:
       return Object.assign({}, state, {
-        [action.tab]: appData(state[action.tab], action)
+        [action.tab]: resource(state[action.tab], action)
       })
     default:
       return state

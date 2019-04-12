@@ -14,11 +14,17 @@ import {TAB_LIST, DEFAULT_PAGE_NUMBER, DEFAULT_PAGE_SIZE} from './constants'
 import {fetchData, selecTab} from './actions'
 import {transformColumns, transformData} from './utils'
 
+/*
+Home Page container. This is used to render tabs
+and their respective panels. It also registers
+onSelect listeners for tabs and pagination listeners
+for table.
+*/
 class HomePage extends React.Component{
 
   constructor(props) {
     super(props);
-    this.handleSelect = this.handleSelect.bind(this)
+    this.handleSelect = this.handleSelect.bind(this) // Bind the select handler.
   }
 
   componentDidMount(){
@@ -26,6 +32,10 @@ class HomePage extends React.Component{
     dispatch(fetchData(selectedTab))
   }
 
+  /*
+  Handle change callback. Only fetch the data if the tab selection
+  have been changed.
+  */
   handleSelect(index, last){
     if (index !== last) {
       this.props.dispatch(selecTab(TAB_LIST[index]))
@@ -41,7 +51,8 @@ class HomePage extends React.Component{
     return (
       <div>
         <NotificationContainer/>
-        {error ? NotificationManager.error('Something Went Wrong!') : ''}
+        {error ? NotificationManager.error('Something Went Wrong!') : ''} // Flash error message if request dont get successful
+
         <Tabs
           defaultIndex={0}
           onSelect={this.handleSelect}>
